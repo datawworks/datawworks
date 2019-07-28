@@ -87,3 +87,22 @@ $$[x]: \partial_x U = \lambda \partial_x g(x,y)$$
 $$[y]: \partial_y U = \lambda \partial_y g(x,y)$$
 
 $$[\lambda]: g(x,y) = c$$
+\documentclass[tikz, margin=3mm]{standalone}
+
+\begin{document}
+    \begin{tikzpicture}[
+dot/.style = {circle, inner sep=0pt, minimum size=1mm, fill,
+              node contents={}}
+                        ]
+\def\firstcircle{(-1.2,0) coordinate (a) circle (2cm)}
+\def\secondcircle{(1.2,0) coordinate (b)  circle (2cm)}
+    \begin{scope}
+\clip \secondcircle;
+\fill[cyan] \firstcircle;
+    \end{scope}
+\draw \firstcircle  node[dot,label=$n_{ij}$];
+\draw \secondcircle;
+\node (c) [above] at (current bounding box.north -| a) {$t_i$};
+\node at (c -| b) {$t_j$};
+    \end{tikzpicture}
+  \end{document}
